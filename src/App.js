@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import TopList from './components/TopList'
+import { getTopList } from './redux/topListReducer'
+import { getArtist } from './redux/artistReducer'
+import { getTrack } from './redux/searchReducer'
+import ArtistDetail from './components/ArtistDetail'
+import SearchTrack from './components/SearchTrack'
+import Navbar from './components/Navbar'
 
-function App() {
+const App = (props) => {
+  
+  useEffect(() => {
+    props.getTrack()
+    props.getTopList()
+    props.getArtist()
+  }, [])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <><Navbar/></>
+      <div className="App">
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <TopList list={props.list} artist={props.artist}/>}
+          />
+          <Route
+            path="/artistdetail"
+            render={() => (
+              <ArtistDetail list={props.list} artist={props.artist} />
+            )}
+          />
+          <Route
+            path="/searchtrack"
+            render={() => (
+              <SearchTrack search={props.search}/>
+            )}
+          />
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+    list: state.topList.topList,
+    artist: state.artist.artists,
+    search: state.search.search,
+  }
+}
+
+export default connect(mapStateToProps, { getTopList, getArtist, getTrack })(
+  App
+)

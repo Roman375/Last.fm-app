@@ -11,3 +11,112 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  /* display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none; */
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  margin: 1rem;
+  width: 250px;
+  text-align: center;
+}
+
+.card-action a {
+  margin: 0px;
+}
+.mr1 {
+  margin: 0 1rem;
+}
+
+.card-image {
+  text-align: center;
+}
+
+.card-title {
+  right: 0;
+}
+
+.search_track {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin-bottom: 20px;
+  list-style: none;
+}
+.search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.search_list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.details-image {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.details-title {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.details-tag {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.details-content {
+  padding: 10px 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.top{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 10px;
+  color: #ffa726;
+}
+
+.card-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mrt1{
+  margin-top: 1rem;
+}
