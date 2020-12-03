@@ -27,7 +27,7 @@ class TopList extends React.Component {
       <div className="card-container">
         {this.props.list.length > 0 ? (
           this.props.list.map((track) => (
-            <div className="row" key={'a'}>
+            <div className="row" key={track.playcount}>
               <div className="card">
                 <div className="card-image">
                   <img src={track.image[2]['#text']} alt={track.name} />
