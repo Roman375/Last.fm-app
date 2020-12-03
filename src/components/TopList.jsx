@@ -3,10 +3,11 @@ import { NavLink } from 'react-router-dom'
 import { getTopList } from '../redux/topListReducer'
 import { getArtist } from '../redux/artistReducer'
 import { connect } from 'react-redux'
+import Preloader from '../common/Preloader'
 
 class TopList extends React.Component {
   componentDidUpdate(prevProps) {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
     let artistName = this.props.artist.name
     if (artistName !== prevProps.artist.name) {
       this.props.getArtist(artistName)
@@ -49,19 +50,7 @@ class TopList extends React.Component {
             </div>
           ))
         ) : (
-          <div className="preloader-wrapper active mrt1">
-            <div className="spinner-layer spinner-red-only">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div>
-              <div className="gap-patch">
-                <div className="circle"></div>
-              </div>
-              <div className="circle-clipper right">
-                <div className="circle"></div>
-              </div>
-            </div>
-          </div>
+          <Preloader />
         )}
         </div>
       </>

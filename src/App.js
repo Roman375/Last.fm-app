@@ -14,7 +14,6 @@ const App = (props) => {
   useEffect(() => {
     props.getTrack()
     props.getTopList()
-    props.getArtist()
   }, [])
 
 

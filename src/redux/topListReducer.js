@@ -1,4 +1,4 @@
-import { itemsAPI, imageAPI } from "../api/api"
+import { itemsAPI } from "../api/api"
 
 const SET_TOPLIST = 'SET_TOPLIST'
 
