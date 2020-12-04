@@ -9,19 +9,19 @@ const initialState = {
 const topListReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_TOPLIST: {
-           return { ...state, topList: action.tracks }  
+           return { ...state, topList: action.track }  
         }
         default:
             return state
     }
 }
 
-export const setTopList = (tracks) => {
-    return { type: SET_TOPLIST, tracks}
+export const setTopList = (track) => {
+    return { type: SET_TOPLIST, track}
 }
 
 export const getTopList = () => async (dispatch) => {
-    const response = await itemsAPI.getItems()
+    let response = await itemsAPI.getItems()
     dispatch(setTopList(response.track))
 }
 

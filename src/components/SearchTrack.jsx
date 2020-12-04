@@ -8,6 +8,10 @@ const SearchTrack = (props) => {
   const [search, setSearch] = useState('')
   const [filtred, setFiltred] = useState('')
 
+  useEffect(() => {
+    props.getTrack()
+  }, [])
+
   const filter = () => {
     setFiltred(
       props.search.filter((track) => {
@@ -16,7 +20,7 @@ const SearchTrack = (props) => {
       })
     )
   }
-
+  console.log(props)
   return (
     <div>
       <div className="search_track">
@@ -55,15 +59,4 @@ const SearchTrack = (props) => {
     </div>
   )
 }
-
-let mapStateToProps = (state) => {
-  return {
-    list: state.topList.topList,
-    artist: state.artist.artists,
-    search: state.search.search,
-  }
-}
-
-export default connect(mapStateToProps, { getTopList, getArtist, getTrack })(
-  SearchTrack
-)
+export default SearchTrack

@@ -24,6 +24,7 @@ export const artistAPI = {
         `${url}=artist.getinfo&artist=${artistName}&api_key=${key}&format=json`
       )
       .then((response) => {
+        console.log(response.data);
         return response.data
       })
   },
