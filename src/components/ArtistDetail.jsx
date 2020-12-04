@@ -1,4 +1,5 @@
 import React from 'react'
+import Preloader from '../common/Preloader'
 
 class ArtistDetail extends React.Component {
   fetchArtistData(artistName) {
@@ -28,47 +29,22 @@ class ArtistDetail extends React.Component {
 
   render() {
     if (this.props.isLoading) {
-      return <div>in Progress</div>
-    }
-
-    if (this.props.match.params.artistName === 'undefined') {
-      return (
-        <div>
-          {' '}
-          <h1>Enter Valid Name</h1>
-        </div>
-      )
+      return <Preloader />
     }
 
     if (this.isEmpty(this.props.artist)) {
-      console.log(this.props)
       return (
-        <div>
-          {' '}
-          <h1>Artist not found</h1>
+        <div className='loading'>
+          <Preloader />
         </div>
       )
     }
-    console.log(this.props)
     let bio = this.props.artist.bio ? this.props.artist.bio.content : null
 
     if (bio !== null) {
       let text = bio.split('<')
       bio = text[0]
     }
-
-    let tags = this.props.artist.tags
-      ? this.props.artist.tags.tag.map((item, index) => (
-          <div key={index}>
-            <li>{item.name}</li>
-          </div>
-        ))
-      : null
-
-    let image = this.props.artist.image[3]['#text']
-      ? this.props.artist.image[3]['#text']
-      : null
-
     return (
       <>
         <div className="details">

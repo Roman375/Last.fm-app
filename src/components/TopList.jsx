@@ -10,7 +10,15 @@ class TopList extends React.Component {
   renderSongsElement = (i) => {
     let track = this.props.list.topList;
     
+    if (this.props.isLoading) {
+      return (
+        <div className='loading'>
+        <Preloader />
+      </div>
+      )
+    }
     return (
+      
       <div className="row" >
               <div className="card">
                 <div className="card-image">
@@ -32,7 +40,7 @@ class TopList extends React.Component {
   };
 
   render() {
-    console.log(this.props.list.topList);
+    
     return (
       <>
       <h2 className='top'>TOP 50 SONGS</h2>
@@ -41,7 +49,7 @@ class TopList extends React.Component {
             ? this.props.list.topList.map((item, index) => {
                 return <div key={index}>{this.renderSongsElement(index)}</div>;
               })
-            : <Preloader />}
+            : <h1>No Data</h1>}
         </div>
       </>
     )

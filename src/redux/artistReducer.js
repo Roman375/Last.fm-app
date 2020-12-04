@@ -21,7 +21,6 @@ export const setArtist = (artist) => {
 
 export const getArtist = (artistName) => async (dispatch) => {
   const response = await artistAPI.getArtist(artistName)
-  console.log(response.artist)
   dispatch(setArtist(response.artist))
 }
 export default artistReducer

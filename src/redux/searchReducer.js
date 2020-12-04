@@ -23,7 +23,6 @@ export const getSearchTrack = (value) => {
 
 export const getTrack = () => async (dispatch) => {
     const response = await searchAPI.getTrack()
-    console.log(response.track);
     dispatch(getSearchTrack(response.track))
 }
 export default searchReducer

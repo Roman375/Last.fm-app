@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
     list: state.topList,
     artist: state.artistDetails,
     search: state.search.search,
+    isLoading: state.isLoading
   }
 }
 

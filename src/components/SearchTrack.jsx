@@ -20,7 +20,6 @@ const SearchTrack = (props) => {
       })
     )
   }
-  console.log(props)
   return (
     <div>
       <div className="search_track">
